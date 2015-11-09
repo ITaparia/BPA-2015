@@ -7,19 +7,26 @@
 (function($) {
 
 	$(window).scroll(function () {
-				if ($(this).scrollTop() > 100) {
-					$('.scrollup').fadeIn();
-				} else {
-					$('.scrollup').fadeOut();
-				}
-			});
+		if ($(this).scrollTop() > 100) {
+			$('.scrollup').fadeIn();
+		} else {
+			$('.scrollup').fadeOut();
+		}
+	});
 		
-			$('.scrollup').click(function () {
-				$("html, body").animate({
-					scrollTop: 0
-				}, 600);
-				return false;
-			});
+	$('.scrollup').click(function () {
+		$("html, body").animate({
+			scrollTop: 0
+		}, 600);
+		return false;
+	});
+
+	/* smooth scrolling for nav sections */
+	$('#deets-link').click(function(){
+		var link = $(this).attr('href');
+  		var posi = $(link).offset().top+20;
+  		$('body,html').animate({scrollTop:posi},700);
+	});
 
 	skel
 		.breakpoints({
